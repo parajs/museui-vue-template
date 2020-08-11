@@ -6,9 +6,14 @@ import "muse-ui/dist/muse-ui.css";
 import theme from "muse-ui/lib/theme";
 import Vue from "vue";
 import App from "./App.vue";
+import MockXhr from "./mock";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
+
+if (process.env.NODE_ENV === "mock") {
+  MockXhr();
+}
 Vue.use(Toast);
 
 theme.add(

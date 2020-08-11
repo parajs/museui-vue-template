@@ -6,25 +6,24 @@ function resolve(dir) {
 }
 
 module.exports = {
+  lintOnSave: false,
   devServer: {
     open: true,
-    port: 9528,
+    port: 3000,
     overlay: {
       warnings: false,
       errors: true
-    },
-
-    proxy: {
-      [process.env.VUE_APP_BASE_API]: {
-        target: "http://api.beehub.paradeum.com",
-        //target: `http://127.0.0.1:${port}/mock`,
-        changeOrigin: true,
-        // logLevel: 'debug',
-        pathRewrite: {
-          ["^" + process.env.VUE_APP_BASE_API]: ""
-        }
-      }
     }
+    // proxy: {
+    //   [process.env.VUE_APP_BASE_API]: {
+    //     target: `http://127.0.0.1:3000`,
+    //     changeOrigin: true,
+    //     // logLevel: 'debug',
+    //     pathRewrite: {
+    //       ["^" + process.env.VUE_APP_BASE_API]: ""
+    //     }
+    //   }
+    // },
   },
 
   productionSourceMap: false,
@@ -42,7 +41,8 @@ module.exports = {
         icons: resolve("src/icons"),
         api: resolve("src/api"),
         assets: resolve("src/assets"),
-        store: resolve("src/store")
+        store: resolve("src/store"),
+        mock: resolve("src/mock")
       }
     }
   },

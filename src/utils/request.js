@@ -59,7 +59,7 @@ service.interceptors.response.use(
   },
   error => {
     console.log("err" + error); // for debug
-    Toast.error(res.message || "Error");
+    Toast.error(error.message || "Error");
     return Promise.reject(error);
   }
 );

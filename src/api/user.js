@@ -36,3 +36,13 @@ export function logout() {
     method: "post"
   });
 }
+
+/**
+ * @description 获取用户列表
+ */
+export function findUserList() {
+  return request({
+    url: "/user/findUserList",
+    method: "get"
+  });
+}
