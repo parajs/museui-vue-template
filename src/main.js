@@ -1,3 +1,5 @@
+// import Toast from 'muse-ui-toast'; 本地保存会自动删除、只能曲线解决
+import Toast from "@/components/muse-ui-toast";
 import TopNav from "@/components/TopNav";
 import MuseUI from "muse-ui";
 import "muse-ui/dist/muse-ui.css";
@@ -7,7 +9,7 @@ import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
-Vue.component(TopNav.name, TopNav);
+Vue.use(Toast);
 
 theme.add(
   "teal",
@@ -23,6 +25,9 @@ theme.add(
 
 theme.use("teal");
 Vue.use(MuseUI);
+
+Vue.component(TopNav.name, TopNav);
+
 Vue.config.productionTip = false;
 
 new Vue({

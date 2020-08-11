@@ -13,6 +13,7 @@ module.exports = {
       warnings: false,
       errors: true
     },
+
     proxy: {
       [process.env.VUE_APP_BASE_API]: {
         target: "http://api.beehub.paradeum.com",
