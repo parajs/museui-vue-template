@@ -8,24 +8,10 @@ import request from "@/utils/request";
  * @returns Promise
  */
 export function login(data) {
-  debugger;
   return request({
     url: `/user/login`,
     method: "post",
     data
-  });
-}
-
-/**
- * @description: 获取用户资料 token || uid
- * @param {type}
- * @return: Promise
- */
-export function getuser(params) {
-  return request({
-    url: `/user/info/getuser`,
-    method: "get",
-    params: params
   });
 }
 
@@ -36,8 +22,21 @@ export function getuser(params) {
  */
 export function logout() {
   return request({
-    url: "/user/sign/out",
+    url: "/user/logout",
     method: "post"
+  });
+}
+
+/**
+ * @description: 获取用户资料 token || uid
+ * @param { string }
+ * @return: Promise
+ */
+export function getuser(params) {
+  return request({
+    url: `/user/getuser`,
+    method: "get",
+    params: params
   });
 }
 

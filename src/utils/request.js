@@ -50,7 +50,7 @@ service.interceptors.response.use(
       Toast.error(res.message || "Error");
       // 403: forbidden login; 401: Token expired;
       if (res.code === 401 || res.code === 403) {
-        // store.dispatch("user/resetUserInfo");
+        store.dispatch("user/exitUser");
       }
       return Promise.reject(new Error(res.message || "Error"));
     } else {

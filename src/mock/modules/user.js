@@ -1,6 +1,6 @@
 import Mock, { Random } from "mockjs";
 
-function list() {
+export function list() {
   // 定义数据
   const listData = Mock.mock({
     "data|20": [
@@ -27,7 +27,7 @@ function list() {
  * @param { string } res.url - 请求地址
  * @param { string } res.type - 请求方法类型
  */
-function login(res) {
+export function login(res) {
   const { body } = res;
   const userInfo = Mock.mock({
     email: "546369005@qq.com",
@@ -43,4 +43,32 @@ function login(res) {
   };
 }
 
-export default { list, login };
+/**
+ * @description 模拟登出
+ */
+export function logout() {
+  return {
+    code: 200,
+    data: {},
+    message: "登出成功"
+  };
+}
+
+/**
+ * @description 模拟登出
+ */
+export function getUser() {
+  const userInfo = Mock.mock({
+    username: "chenguzhen87",
+    email: "546369005@qq.com",
+    sex: 1
+  });
+  return {
+    code: 200,
+    data: {
+      user: userInfo,
+      token: "dfdi30993llldfd988444"
+    },
+    message: "获取用户信息成功"
+  };
+}

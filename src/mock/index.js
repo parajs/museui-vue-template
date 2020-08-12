@@ -1,6 +1,6 @@
 // 引入mockjs
 import Mock from "mockjs";
-import user from "./modules/user";
+import * as user from "./modules/user";
 // Mock函数
 const { mock } = Mock;
 
@@ -11,6 +11,8 @@ Mock.setup({
 
 // 使用拦截规则拦截命中的请求，mock(url, post/get, 返回的数据);
 export default function() {
-  mock(/\/api\/user\/findUserList/, "get", user.list);
-  mock(/\/api\/user\/login/, "post", user.login);
+  mock("/api/user/findUserList", "get", user.list);
+  mock("/api/user/login", "post", user.login);
+  mock("/api/user/logout", "post", user.logout);
+  mock("/api/user/getUser", "post", user.getUser);
 }

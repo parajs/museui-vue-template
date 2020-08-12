@@ -37,6 +37,7 @@ module.exports = {
         layout: resolve("src/layout"),
         views: resolve("src/views"),
         utils: resolve("src/utils"),
+        router: resolve("src/router"),
         components: resolve("src/components"),
         icons: resolve("src/icons"),
         api: resolve("src/api"),

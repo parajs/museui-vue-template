@@ -3,7 +3,7 @@
     <top-nav>
       my
     </top-nav>
-    <mu-form ref="form" :model="validateForm">
+    <mu-form ref="form" :model="validateForm" v-if="!token">
       <mu-form-item label="用户名" prop="username" :rules="usernameRules">
         <mu-text-field
           v-model="validateForm.username"
@@ -24,14 +24,29 @@
         ></mu-checkbox>
       </mu-form-item>
       <mu-form-item>
-        <mu-button color="primary" @click="submit">提交</mu-button>
-        <mu-button @click="clear">重置</mu-button>
+        <mu-button color="primary" full-width @click="submit">提交</mu-button>
+      </mu-form-item>
+      <mu-form-item>
+        <mu-button full-width @click="clear">重置</mu-button>
       </mu-form-item>
     </mu-form>
+    <mu-row style="margin-top:60px" justify-content="center" v-else>
+      <mu-avatar size="56">
+        <img src="/favicon.ico" />
+      </mu-avatar>
+      <div style="margin-top:20">{{ user.username }}</div>
+      <mu-button
+        style="margin-top:30px"
+        full-width
+        color="primary"
+        @click="logout"
+        >登出</mu-button
+      >
+    </mu-row>
   </mu-container>
 </template>
 <script>
-import { login } from "api/user";
+import { mapState } from "vuex";
 export default {
   name: "My",
   data() {
@@ -55,17 +70,22 @@ export default {
       }
     };
   },
+  computed: {
+    ...mapState({
+      token: state => state.user.token,
+      user: state => state.user.user
+    })
+  },
   methods: {
+    logout() {
+      this.$store.dispatch("user/logout");
+    },
     submit() {
       this.$refs.form.validate().then(result => {
         if (result) {
-          this.login();
+          this.$store.dispatch("user/login", this.validateForm);
         }
       });
-    },
-    async login() {
-      const user = await login(this.validateForm);
-      console.log(user);
     },
     clear() {
       this.$refs.form.clear();
