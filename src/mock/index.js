@@ -12,4 +12,5 @@ Mock.setup({
 // 使用拦截规则拦截命中的请求，mock(url, post/get, 返回的数据);
 export default function() {
   mock(/\/api\/user\/findUserList/, "get", user.list);
+  mock(/\/api\/user\/login/, "post", user.login);
 }

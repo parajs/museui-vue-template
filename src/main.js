@@ -14,7 +14,7 @@ import store from "./store";
 if (process.env.NODE_ENV === "mock") {
   MockXhr();
 }
-Vue.use(Toast);
+Vue.use(Toast, { position: "top " });
 
 theme.add(
   "teal",

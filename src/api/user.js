@@ -1,12 +1,16 @@
 import request from "@/utils/request";
 /**
- * @description: 用户登录
- * @param {type}
- * @return: Promise
+ * @description 获取用户列表
+ * @param { Object } data
+ * @param { string } data.username - 用户名
+ * @param { string } data.password - 密码
+ * @param { string } data.isAgree - 是否同意协议
+ * @returns Promise
  */
 export function login(data) {
+  debugger;
   return request({
-    url: `/user/sign/verifypassword`,
+    url: `/user/login`,
     method: "post",
     data
   });
@@ -39,6 +43,7 @@ export function logout() {
 
 /**
  * @description 获取用户列表
+ * @returns Promise
  */
 export function findUserList() {
   return request({

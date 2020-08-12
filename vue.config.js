@@ -13,17 +13,17 @@ module.exports = {
     overlay: {
       warnings: false,
       errors: true
+    },
+    proxy: {
+      [process.env.VUE_APP_BASE_API]: {
+        target: `http://127.0.0.1:3000`,
+        changeOrigin: true,
+        // logLevel: 'debug',
+        pathRewrite: {
+          ["^" + process.env.VUE_APP_BASE_API]: ""
+        }
+      }
     }
-    // proxy: {
-    //   [process.env.VUE_APP_BASE_API]: {
-    //     target: `http://127.0.0.1:3000`,
-    //     changeOrigin: true,
-    //     // logLevel: 'debug',
-    //     pathRewrite: {
-    //       ["^" + process.env.VUE_APP_BASE_API]: ""
-    //     }
-    //   }
-    // },
   },
 
   productionSourceMap: false,
