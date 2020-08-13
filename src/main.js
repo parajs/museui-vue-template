@@ -1,6 +1,7 @@
 // import Toast from 'muse-ui-toast'; 本地保存会自动删除、只能曲线解决
 import Toast from "@/components/muse-ui-toast";
 import TopNav from "@/components/TopNav";
+import "@/icons"; // icon
 import MuseUI from "muse-ui";
 import "muse-ui/dist/muse-ui.css";
 import theme from "muse-ui/lib/theme";
