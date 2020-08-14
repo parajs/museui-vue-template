@@ -24,5 +24,7 @@ export default {
   height: calc(100vh - 112px);
   overflow: auto;
   margin-top: 56px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 </style>
