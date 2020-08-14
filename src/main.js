@@ -2,6 +2,7 @@
 import Toast from "@/components/muse-ui-toast";
 import TopNav from "@/components/TopNav";
 import "@/icons"; // icon
+import "@/styles/index.scss";
 import MuseUI from "muse-ui";
 import "muse-ui/dist/muse-ui.css";
 import theme from "muse-ui/lib/theme";
