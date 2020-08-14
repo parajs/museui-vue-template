@@ -3,7 +3,7 @@
     <top-nav>
       my
     </top-nav>
-    <mu-form ref="form" :model="validateForm" v-if="!token">
+    <mu-form class="mt-5" ref="form" :model="validateForm" v-if="!token">
       <mu-form-item label="用户名" prop="username" :rules="usernameRules">
         <mu-text-field
           v-model="validateForm.username"
@@ -23,12 +23,10 @@
           v-model="validateForm.isAgree"
         ></mu-checkbox>
       </mu-form-item>
-      <mu-form-item>
-        <mu-button color="primary" full-width @click="submit">提交</mu-button>
-      </mu-form-item>
-      <mu-form-item>
-        <mu-button full-width @click="clear">重置</mu-button>
-      </mu-form-item>
+      <mu-button color="primary" full-width @click="submit">提交</mu-button>
+      <mu-button style="margin-top:16px" full-width @click="clear"
+        >重置</mu-button
+      >
     </mu-form>
     <mu-row style="margin-top:60px" justify-content="center" v-else>
       <mu-avatar size="56">
