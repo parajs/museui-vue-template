@@ -6,6 +6,7 @@ function resolve(dir) {
 }
 
 module.exports = {
+  productionSourceMap: false,
   lintOnSave: false,
   devServer: {
     open: true,
