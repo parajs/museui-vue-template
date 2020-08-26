@@ -28,7 +28,7 @@ router.beforeEach(async (to, from, next) => {
         next();
       } catch (error) {
         // remove token and go to home
-        await store.dispatch("user/exitUser");
+        await store.dispatch("user/reset");
         NProgress.done();
       }
     }
