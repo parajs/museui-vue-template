@@ -32,7 +32,7 @@ const actions = {
   reset({ commit }) {
     commit("mutateState", { token: "", user: { username: "" } });
     removeCookie(process.env.VUE_APP_TOKEN);
-    router.push("/");
+    router.push("/my");
   },
   async getUser({ commit }, payload) {
     const result = await getUser(payload);

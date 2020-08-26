@@ -18,7 +18,7 @@ router.beforeEach(async (to, from, next) => {
   // determine whether the user has logged in
   const hasToken = getCookie(process.env.VUE_APP_TOKEN);
   if (hasToken) {
-    const hasGetUserInfo = store.getters.user;
+    const hasGetUserInfo = store.getters.user.id;
     if (hasGetUserInfo) {
       next();
     } else {
@@ -39,7 +39,7 @@ router.beforeEach(async (to, from, next) => {
       next();
     } else {
       // other pages that do not have permission to access are redirected to the login page.
-      next(`/`);
+      next("/login");
       NProgress.done();
     }
   }
