@@ -30,7 +30,7 @@ const actions = {
     return result;
   },
   reset({ commit }) {
-    commit("mutateState", { token: "", username: { username: "" } });
+    commit("mutateState", { token: "", user: { username: "" } });
     removeCookie(process.env.VUE_APP_TOKEN);
     router.push("/");
   },
