@@ -8,13 +8,17 @@ import "muse-ui/dist/muse-ui.css";
 import theme from "muse-ui/lib/theme";
 import Vue from "vue";
 import App from "./App.vue";
-import MockXhr from "./mock";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 
-if (process.env.NODE_ENV === "mock") {
-  MockXhr();
+if (process.env.NODE_ENV == "mock") {
+  require("./mock");
+}
+
+if (process.env.NODE_ENV === "production") {
+  const VConsole = require("vconsole");
+  new VConsole();
 }
 Vue.use(Toast, { position: "top " });
 
